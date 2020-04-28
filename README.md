@@ -1,19 +1,19 @@
-# dir-to-json [![Build Status](https://travis-ci.org/traviswimer/dir-to-json.png?branch=master)](https://travis-ci.org/traviswimer/dir-to-json)
+# dir-to-json
 
 > Asynchronously convert directory tree structure into a javascript object.
 
+**Warning:** Only directories are listed in JSON object.
 ## Getting Started
 
-Install with NPM:
-
-```shell
-npm install dir-to-json --save
+package.json: 
+```
+"dir2Json": "https://github.com/rubegartor/dir-to-json.git",
 ```
 
 Use in your project like this:
 
 ```javascript
-var dirToJson = require('dir-to-json');
+var dirToJson = require('dir2Json');
 
 dirToJson( "./path/to/my/dir", function( err, dirTree ){
 	if( err ){
@@ -60,95 +60,77 @@ dirToJson( "./path/to/my/dir" )
 {
 	"parent": "..",
 	"path": "",
-	"name": "coverage",
-	"type": "directory",
+	"text": "coverage",
 	"children": [{
 		"parent": "",
 		"path": "coverage-final.json",
-		"name": "coverage-final.json",
-		"type": "file"
+		"text": "coverage-final.json",
 	}, {
 		"parent": "",
 		"path": "index.html",
-		"name": "index.html",
-		"type": "file"
+		"text": "index.html",
 	}, {
 		"parent": "",
 		"path": "lcov-report",
-		"name": "lcov-report",
-		"type": "directory",
-		"children": [{
+		"text": "lcov-report",
+			"children": [{
 			"parent": "lcov-report",
 			"path": "lcov-report/index.html",
-			"name": "index.html",
-			"type": "file"
+			"text": "index.html",
 		}, {
 			"parent": "lcov-report",
 			"path": "lcov-report/prettify.css",
-			"name": "prettify.css",
-			"type": "file"
+			"text": "prettify.css",
 		}, {
 			"parent": "lcov-report",
 			"path": "lcov-report/prettify.js",
-			"name": "prettify.js",
-			"type": "file"
+			"text": "prettify.js",
 		}, {
 			"parent": "lcov-report",
 			"path": "lcov-report/src",
-			"name": "src",
-			"type": "directory",
-			"children": [{
+			"text": "src",
+					"children": [{
 				"parent": "lcov-report/src",
 				"path": "lcov-report/src/createDirectoryObject.js.html",
-				"name": "createDirectoryObject.js.html",
-				"type": "file"
+				"text": "createDirectoryObject.js.html",
 			}, {
 				"parent": "lcov-report/src",
 				"path": "lcov-report/src/index.html",
-				"name": "index.html",
-				"type": "file"
+				"text": "index.html",
 			}, {
 				"parent": "lcov-report/src",
 				"path": "lcov-report/src/main.js.html",
-				"name": "main.js.html",
-				"type": "file"
+				"text": "main.js.html",
 			}]
 		}]
 	}, {
 		"parent": "",
 		"path": "lcov.info",
-		"name": "lcov.info",
-		"type": "file"
+		"text": "lcov.info",
 	}, {
 		"parent": "",
 		"path": "prettify.css",
-		"name": "prettify.css",
-		"type": "file"
+		"text": "prettify.css",
 	}, {
 		"parent": "",
 		"path": "prettify.js",
-		"name": "prettify.js",
-		"type": "file"
+		"text": "prettify.js",
 	}, {
 		"parent": "",
 		"path": "src",
-		"name": "src",
-		"type": "directory",
-		"children": [{
+		"text": "src",
+			"children": [{
 			"parent": "src",
 			"path": "src/createDirectoryObject.js.html",
-			"name": "createDirectoryObject.js.html",
-			"type": "file"
+			"text": "createDirectoryObject.js.html",
 		}, {
 			"parent": "src",
 			"path": "src/index.html",
-			"name": "index.html",
-			"type": "file"
+			"text": "index.html",
 		}, {
 			"parent": "src",
 			"path": "src/main.js.html",
-			"name": "main.js.html",
-			"type": "file"
+			"text": "main.js.html",
 		}]
 	}]
 }
