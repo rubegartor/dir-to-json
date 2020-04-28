@@ -18,7 +18,7 @@ var createDirectoryObject = function( rootDir, fileName, options ){
 	var fileInfo = {
 		parent: path.relative( rootDir, path.dirname( currentDir ) ),
 		path: path.relative( "./" + rootDir, "./" + currentDir ),
-		name: path.basename( currentDir )
+		text: path.basename( currentDir )
 	};
 
 	stat( currentDir )
@@ -43,7 +43,9 @@ var createDirectoryObject = function( rootDir, fileName, options ){
 		// Recursively examine directory's children
 		var promises = [];
 		files.forEach(function( newFileName ){
-			promises.push( createDirectoryObject( rootDir, fileName+'/'+newFileName, options ) );
+			if(fs.lstatSync(rootDir + '/' + fileName+'/'+newFileName).isDirectory()){
+				promises.push( createDirectoryObject( rootDir, fileName+'/'+newFileName, options ) );
+			}
 		});
 
 		// Wait for all children to complete before resolving main promise
